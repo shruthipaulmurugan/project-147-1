@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+  
+  <body>
+    <a-scene background="color:black">
+  
+      <a-camera position="0 8 15"></a-camera>
+  
+      <a-assets timeout="10000">
+  
+        <a-asset-item id="lamp" src="./models/Street_Lamp/scene.gltf"></a-asset-item>
+        <a-asset-item id="cat" src="./models/cat/scene.gltf"></a-asset-item>
+        <a-asset-item id="woman" src="./models/Woman_Walking/scene.gltf"></a-asset-item>
+
+      </a-assets>
+    
+    <a-entity light="type: ambient; intensity: 0.5;">
+    </a-entity>
+
+    <a-entity animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 60000;">
+        <a-entity light="type: point; castShadow: true; intensity: 1; distance: 50; decay: 2; color: yellow"
+          position="-100 18 20">
+  
+        </a-entity>
+      </a-entity>
+
+      <a-entity>
+        <a-entity position="-5 2 0" rotation="0 55 0" scale="0.05 0.05 0.05" gltf-model="#lamp" shadow="cast: false;">
+        </a-entity>
+      </a-entity>
+
+      <a-entity>
+        <a-entity position="-9 4 8.2" rotation="0 90 0" scale="1 1 1" gltf-model="#cat"
+          shadow="cast: true; receive: false"> </a-entity>
+      </a-entity>
+
+      <a-entity position="20 0 0" rotation="0 -90 0" scale="1 1 1" gltf-model="#woman"
+      shadow="cast: true; receive: false"> </a-entity>
+    </a-entity>
